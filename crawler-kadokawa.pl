@@ -4,6 +4,7 @@ use 5.010;
 use strict;
 use warnings;
 
+use Web::Query;
 use WWW::Mechanize;
 use XML::Feed;
 
@@ -26,6 +27,8 @@ INIT {
     foreach my $url (@urls) {
         my $ua = WWW::Mechanize->new;
         my $res = $ua->get($url);
+
+        my $body = Web::Query->new($res->decoded_content);
     }
 
     print $feed->as_xml;
