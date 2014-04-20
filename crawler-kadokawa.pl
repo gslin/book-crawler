@@ -37,6 +37,8 @@ INIT {
     foreach my $url (@urls) {
         my $res = $ua->get($url);
 
+        next if !$res->is_success;
+
         my $body = Web::Query->new($res->decoded_content);
         $body->find('.pro_set')->each(
             sub {
