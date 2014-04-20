@@ -25,6 +25,10 @@ INIT {
 
     my $feed = XML::Feed->new('Atom');
 
+    $feed->title('台灣角川新書列表 (Unofficial)');
+    $feed->link('https://www.kadokawa.com.tw/');
+    $feed->language('zh-TW');
+
     foreach my $url (@urls) {
         my $ua = WWW::Mechanize->new;
         my $res = $ua->get($url);
