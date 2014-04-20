@@ -32,6 +32,15 @@ INIT {
         $body->find('.pro_set')->each(
             sub {
                 my ($i, $book) = @_;
+
+                my $bookname = $book->find('.pro_bookname')->text;
+                $bookname =~ s/(^\s+|\s+$)//;
+
+                my $author = $book->find('.pro_people')->text;
+                $author =~ s/(^\s+|\s+$)//;
+
+                my $price = $book->find('.pro_price')->text;
+                $price =~ s/(^\s+|\s+$)//;
             }
         );
     }
