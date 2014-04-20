@@ -6,6 +6,7 @@ use warnings;
 
 use DateTime;
 use Digest::MD5 qw/md5_hex/;
+use Encode qw/encode/;
 use Web::Query;
 use WWW::Mechanize;
 use XML::Feed;
