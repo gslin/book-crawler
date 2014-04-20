@@ -21,6 +21,9 @@ INIT {
         'https://www.kadokawa.com.tw/p1-products.php?Class2=2d98q6mt1HfTQMGvNye2LYSyDyTMfoC1xNj1bwKE&page=3',
         'https://www.kadokawa.com.tw/p1-products.php?Class2=2d98q6mt1HfTQMGvNye2LYSyDyTMfoC1xNj1bwKE&page=4',
         'https://www.kadokawa.com.tw/p1-products.php?Class2=2d98q6mt1HfTQMGvNye2LYSyDyTMfoC1xNj1bwKE&page=5',
+
+        # 書籍
+        'https://www.kadokawa.com.tw/p1-products.php?Class2=d77fOJmJ3T8QyBH_DlwPjLc0SsMRALOEAuJJ6H82&intM=2',
     );
 
     my $feed = XML::Feed->new('Atom');
