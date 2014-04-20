@@ -72,7 +72,7 @@ INIT {
                 $entry->title($bookname);
                 $entry->author($author);
                 $entry->content($price);
-                $entry->issued($date);
+                $entry->modified($date);
 
                 $feed->add_entry($entry);
             }
