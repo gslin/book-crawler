@@ -29,6 +29,11 @@ INIT {
         my $res = $ua->get($url);
 
         my $body = Web::Query->new($res->decoded_content);
+        $body->find('.pro_set')->each(
+            sub {
+                my ($i, $book) = @_;
+            }
+        );
     }
 
     print $feed->as_xml;
