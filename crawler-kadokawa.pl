@@ -4,6 +4,7 @@ use 5.010;
 use strict;
 use warnings;
 
+use DateTime;
 use Web::Query;
 use WWW::Mechanize;
 use XML::Feed;
@@ -41,6 +42,16 @@ INIT {
 
                 my $price = $book->find('.pro_price')->text;
                 $price =~ s/(^\s+|\s+$)//;
+
+                my $date = undef;
+                if ($price =~ m{(\d{4})/(\d\d)/(\d\d)}) {
+                    $date = DateTime->new(
+                        year => $1,
+                        month => $2,
+                        day => $3,
+                        time_zone => 'Asia/Taipei',
+                    );
+                }
             }
         );
     }
