@@ -5,7 +5,6 @@ use strict;
 use warnings;
 
 use DateTime;
-use Encode qw/encode/;
 use Web::Query;
 use WWW::Mechanize;
 use XML::Feed;
