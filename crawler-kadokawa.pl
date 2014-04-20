@@ -51,6 +51,8 @@ INIT {
                         day => $3,
                         time_zone => 'Asia/Taipei',
                     );
+                } else {
+                    return;
                 }
             }
         );
