@@ -5,7 +5,6 @@ use strict;
 use warnings;
 
 use DateTime;
-use Digest::MD5 qw/md5_hex/;
 use Encode qw/encode/;
 use Web::Query;
 use WWW::Mechanize;
@@ -36,6 +35,8 @@ INIT {
             sub {
                 my ($i, $book) = @_;
 
+                my $link = 'https://www.kadokawa.com.tw/' . $book->find('a')->first->attr('href');
+
                 my $bookname = $book->find('.pro_bookname')->text;
                 $bookname =~ s/(^\s+|\s+$)//;
 
@@ -57,11 +58,10 @@ INIT {
                     return;
                 }
 
-                my $id = 'https://www.kadokawa.com.tw/#' . md5_hex(encode('UTF-8', $bookname . $author . $price));
-
                 my $entry = XML::Feed::Entry->new;
 
-                $entry->id($id);
+                $entry->id($link);
+                $entry->link($link);
                 $entry->title($bookname);
                 $entry->author($author);
                 $entry->content($price);
