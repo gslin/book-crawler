@@ -58,6 +58,16 @@ INIT {
                 }
 
                 my $id = 'https://www.kadokawa.com.tw/#' . md5_hex(encode('UTF-8', $bookname . $author . $price));
+
+                my $entry = XML::Feed::Entry->new;
+
+                $entry->id($id);
+                $entry->title($bookname);
+                $entry->author($author);
+                $entry->content($price);
+                $entry->issued($date);
+
+                $feed->add_entry($entry);
             }
         );
     }
