@@ -45,13 +45,13 @@ INIT {
                 my $link = 'https://www.kadokawa.com.tw/' . $book->find('a')->first->attr('href');
 
                 my $bookname = $book->find('.pro_bookname')->text;
-                $bookname =~ s/(^\s+|\s+$)//g;
+                $bookname =~ s/^\s+|\s+$//g;
 
                 my $author = $book->find('.pro_people')->text;
-                $author =~ s/(^\s+|\s+$)//g;
+                $author =~ s/^\s+|\s+$//g;
 
                 my $price = $book->find('.pro_price')->text;
-                $price =~ s/(^\s+|\s+$)//g;
+                $price =~ s/^\s+|\s+$//g;
 
                 my $date = undef;
                 if ($price =~ m{(\d{4})/(\d\d)/(\d\d)}) {
