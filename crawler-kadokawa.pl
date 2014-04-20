@@ -4,6 +4,7 @@ use 5.010;
 use strict;
 use warnings;
 
+use WWW::Mechanize;
 use XML::Feed;
 
 INIT {
@@ -23,6 +24,8 @@ INIT {
     my $feed = XML::Feed->new('Atom');
 
     foreach my $url (@urls) {
+        my $ua = WWW::Mechanize->new;
+        my $res = $ua->get($url);
     }
 
     print $feed->as_xml;
