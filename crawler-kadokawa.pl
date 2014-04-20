@@ -5,6 +5,7 @@ use strict;
 use warnings;
 
 use DateTime;
+use Digest::MD5 qw/md5_hex/;
 use Web::Query;
 use WWW::Mechanize;
 use XML::Feed;
@@ -54,6 +55,8 @@ INIT {
                 } else {
                     return;
                 }
+
+                my $id = 'https://www.kadokawa.com.tw/#' . md5_hex(encode('UTF-8', $bookname . $author . $price));
             }
         );
     }
