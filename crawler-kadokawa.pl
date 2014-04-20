@@ -32,8 +32,9 @@ INIT {
     $feed->link('https://www.kadokawa.com.tw/');
     $feed->language('zh-TW');
 
+    my $ua = WWW::Mechanize->new;
+
     foreach my $url (@urls) {
-        my $ua = WWW::Mechanize->new;
         my $res = $ua->get($url);
 
         my $body = Web::Query->new($res->decoded_content);
